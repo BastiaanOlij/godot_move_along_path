@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+
+[sub_resource type="CapsuleMesh" id=1]
+radius = 0.2
+mid_height = 0.5
+
+[sub_resource type="SphereMesh" id=2]
+radius = 0.1
+height = 0.2
+
+[sub_resource type="CylinderShape" id=3]
+radius = 0.2
+height = 0.5
+
+[sub_resource type="SphereShape" id=4]
+radius = 0.2
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="Gimble" type="Spatial" parent="."]
+
+[node name="Body" type="MeshInstance" parent="Gimble"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="Nose" type="MeshInstance" parent="Gimble/Body"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.179138, -0.19017 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Mid_section" type="CollisionShape" parent="."]
+shape = SubResource( 3 )
+
+[node name="Head" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0 )
+shape = SubResource( 4 )
+
+[node name="Raycasts" type="Spatial" parent="."]
+
+[node name="RayCast01" type="RayCast" parent="Raycasts"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0.1 )
+enabled = true
+cast_to = Vector3( 0, -10, 0 )
+
+[node name="RayCast02" type="RayCast" parent="Raycasts"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, -0.1 )
+enabled = true
+cast_to = Vector3( 0, -10, 0 )
+
+[node name="RayCast03" type="RayCast" parent="Raycasts"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, -0.1 )
+enabled = true
+cast_to = Vector3( 0, -10, 0 )
+
+[node name="RayCast04" type="RayCast" parent="Raycasts"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, 0, 0.1 )
+enabled = true
+cast_to = Vector3( 0, -10, 0 )

@@ -1,0 +1,81 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://StaticBox.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve3D" id=1]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -1.92952, 0, 0.00131779, 0, 0, 0, 0, 0, 0, 1.37457, 1.13324, -0.0632656, 0, 0, 0, 0, 0, 0, 4.53173, 2.61005, 0.134178, 0, 0, 0, 0, 0, 0, 7.61599, 1.67922, -0.0495634, -1.18564, 0.132934, -0.147144, 1.18564, -0.132934, 0.147144, 10.132, 0, 0.197839, -0.195577, 0, -0.620148, 0.195577, 0, 0.620148, 12.0182, 0, 1.96191, 0.378937, 0, -0.593374, -0.378937, 0, 0.593374, 11.9714, 0, 4.01908, 0.499591, 0, -0.303838, -0.499591, 0, 0.303838, 9.92027, 0, 5.4914, 0.742626, 0, 0.40041, -0.742626, 0, -0.40041, 7.29043, 0, 5.474, 0.645714, 0, 0.819865, -0.645714, 0, -0.819865, 5.6721, 0, 4.00988, 0.363297, 0, 0.860745, -0.363297, 0, -0.860745, 4.39014, 0, 1.49211, -0.495396, 0, 0.773972, 0.495396, 0, -0.773972, 4.42448, 0, -1.6674, -0.2799, 0, 0.579324, 0.2799, 0, -0.579324, 5.38866, 0, -3.28685 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[node name="Main" type="Spatial"]
+
+[node name="Path" type="Path" parent="."]
+curve = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.286, 1, 0 )
+follow_path = NodePath("../Path")
+
+[node name="Camera" type="Camera" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 0.96429, 0.264849, 0, -0.264849, 0.96429, 0, 1.754, 3.194 )
+
+[node name="Floor" parent="." instance=ExtResource( 2 )]
+
+[node name="Boxes" type="Spatial" parent="."]
+
+[node name="StaticBox01" parent="Boxes" instance=ExtResource( 1 )]
+
+[node name="StaticBox07" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.34673, 1.70263, 0 )
+
+[node name="StaticBox09" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3439, 1.70263, 0 )
+
+[node name="StaticBox15" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 1, 4.90379, 2.22984, 0 )
+
+[node name="StaticBox10" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 0.891006, 0.453991, 0, -0.453991, 0.891006, 0, 0, 0, 1, 6.06425, 1.53075, 0 )
+
+[node name="StaticBox11" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 0.891006, 0.453991, 0, -0.453991, 0.891006, 0, 0, 0, 1, 6.95621, 1.07627, 0 )
+
+[node name="StaticBox12" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 0.891006, 0.453991, 0, -0.453991, 0.891006, 0, 0, 0, 1, 7.8395, 0.626213, 0 )
+
+[node name="StaticBox13" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 0.891006, 0.453991, 0, -0.453991, 0.891006, 0, 0, 0, 1, 8.72014, 0.177505, 0 )
+
+[node name="StaticBox14" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 0.891006, 0.453991, 0, -0.453991, 0.891006, 0, 0, 0, 1, 9.58553, -0.263434, 0 )
+
+[node name="StaticBox02" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 0.891189, -0.453633, 0, 0.453633, 0.891189, 0, 0, 0, 1, -0.720119, -0.170278, 0 )
+
+[node name="StaticBox03" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 0.891189, -0.453633, 0, 0.453633, 0.891189, 0, 0, 0, 1, -1.60934, -0.625575, 0 )
+
+[node name="StaticBox04" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 0.891189, -0.453633, 0, 0.453633, 0.891189, 0, 0, 0, 1, 0.959597, 0.174459, 0 )
+
+[node name="StaticBox05" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 0.891189, -0.453633, 0, 0.453633, 0.891189, 0, 0, 0, 1, 1.85112, 0.62826, 0 )
+
+[node name="StaticBox06" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 0.891189, -0.453633, 0, 0.453633, 0.891189, 0, 0, 0, 1, 2.73431, 1.07782, 0 )
+
+[node name="StaticBox08" parent="Boxes" instance=ExtResource( 1 )]
+transform = Transform( 0.891189, -0.453633, 0, 0.453633, 0.891189, 0, 0, 0, 1, 3.62471, 1.53106, 0 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 222.0
+margin_bottom = 19.0
+text = "Left/Right to move, space to jump"
+__meta__ = {
+"_edit_use_anchors_": false
+}
